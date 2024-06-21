@@ -53,7 +53,7 @@ export const Nav = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ top: "auto" }}>
         <Toolbar
           sx={{ justifyContent: "space-between", backgroundColor: "#73A9D9" }}
         >
@@ -71,7 +71,7 @@ export const Nav = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            las flores de susi
+            <Avatar src={logo} alt="Logo" />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
