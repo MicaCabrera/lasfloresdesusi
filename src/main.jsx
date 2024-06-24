@@ -11,12 +11,14 @@ import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
-    type: "light",
+    mode: "light",
     primary: {
-      main: "#180733",
+      main: "#0A0000", //negro
+      light: "#FFFDFD", //blanco
     },
     secondary: {
-      main: "#f50057",
+      main: "#A7333F", //gris
+      light: "#767B91", //rojo
     },
   },
 });

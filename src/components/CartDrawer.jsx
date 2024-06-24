@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
@@ -7,7 +6,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 
-const CartDrawer = ({ open, onClose }) => {
+// eslint-disable-next-line react/prop-types
+export const CartDrawer = ({ open, onClose }) => {
   return (
     <Drawer
       anchor="right"
@@ -34,10 +34,3 @@ const CartDrawer = ({ open, onClose }) => {
     </Drawer>
   );
 };
-
-CartDrawer.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-export default CartDrawer;

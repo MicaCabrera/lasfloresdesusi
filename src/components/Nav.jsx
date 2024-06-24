@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,9 +14,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import CartDrawer from "./CartDrawer";
 import { Avatar } from "@mui/material";
 import logo from "../images/logosu-01.png";
+import { CartDrawer } from "./CartDrawer";
 
 const drawerWidth = 240;
 const navItems = ["Inicio", "Tienda", "Eventos", "Suscripcion", "Nosotras"];
@@ -114,8 +113,4 @@ export const Nav = () => {
       <CartDrawer open={cartOpen} onClose={handleCartToggle} />
     </Box>
   );
-};
-
-Nav.propTypes = {
-  window: PropTypes.func,
 };

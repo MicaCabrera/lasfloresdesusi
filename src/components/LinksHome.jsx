@@ -1,80 +1,79 @@
-import { Grid, Button, Box } from "@material-ui/core";
+import { Box, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import img1 from "../images/a.jpg";
+import img2 from "../images/casamiento.jpeg";
 
 export const LinksHome = () => {
   return (
-    <Grid container spacing={3} justifyContent="center">
+    <Grid container spacing={2} justifyContent="center" p={4}>
       {/* Primera caja */}
       <Grid item xs={12} md={6}>
         <Box
+          component={Link}
+          to="/tienda"
           sx={{
-            width: { xs: "100%", md: "780px" },
-            height: { xs: "auto", md: "810px" },
-            backgroundColor: "#f0f0f0",
+            position: "relative",
+            width: "100%",
+            height: { xs: "300px", md: "600px" },
+            backgroundImage: `url(${img1})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             textAlign: "center",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
+            textDecoration: "none",
             "&:hover": {
-              textDecoration: "underline",
+              textDecoration: "none",
             },
-            marginBottom: { xs: "20px", md: "0" },
-            padding: "10px",
           }}
         >
-          <Button
-            component={Link}
-            to="/ruta-a-tu-pagina"
-            variant="contained"
+          <Typography
+            variant="h3"
             sx={{
-              backgroundColor: "#f57c00",
-              color: "#ffffff",
-              width: "100px",
-              height: "100px",
-              mt: 2,
+              color: "white",
+              fontWeight: "bold",
+              padding: "10px 20px",
             }}
           >
-            Botón
-          </Button>
+            RAMOS
+          </Typography>
         </Box>
       </Grid>
 
-      {/* Segunda caja */}
       <Grid item xs={12} md={6}>
         <Box
+          component={Link}
+          to="/eventos"
           sx={{
-            width: { xs: "100%", md: "780px" },
-            height: { xs: "auto", md: "810px" },
-            backgroundColor: "#f0f0f0",
-            textAlign: "center",
+            position: "relative",
+            width: "100%",
+            height: { xs: "300px", md: "600px" },
+            backgroundImage: `url(${img2})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            textAlign: "end",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
+            textDecoration: "none",
             "&:hover": {
-              textDecoration: "underline",
+              textDecoration: "none",
             },
-            marginBottom: { xs: "20px", md: "0" },
-            padding: "10px",
           }}
         >
-          <Button
-            component={Link}
-            to="/ruta-a-tu-pagina"
-            variant="contained"
+          <Typography
+            variant="h3"
             sx={{
-              backgroundColor: "#f57c00",
-              color: "#ffffff",
-              width: "100px",
-              height: "100px",
-              mt: 2,
+              color: "white",
+              fontWeight: "bold",
+              padding: "10px 20px",
             }}
           >
-            Botón
-          </Button>
+            EVENTOS
+          </Typography>
         </Box>
       </Grid>
     </Grid>
