@@ -11,7 +11,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Avatar } from "@mui/material";
@@ -20,11 +19,12 @@ import { CartDrawer } from "./CartDrawer";
 
 const drawerWidth = 240;
 const navItems = [
-  { name: "Inicio", route: "/" },
-  { name: "Tienda", route: "/tienda" },
-  { name: "Eventos", route: "/eventos" },
-  { name: "Suscripción", route: "/suscripciones" },
-  { name: "Nosotras", route: "/nosotras" },
+  { name: "Home", route: "/" },
+  { name: "Shop", route: "/shop" },
+  { name: "About", route: "/about" },
+  { name: "Contact", route: "/contact" },
+  { name: "Collaborations", route: "/collaborations" },
+  { name: "NFT", route: "/nft" },
 ];
 
 export const Nav = () => {
@@ -41,7 +41,11 @@ export const Nav = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Avatar alt="Logo" src={logo} sx={{ width: 56, height: 56 }} />
+      <Avatar
+        alt="Logo"
+        src={logo}
+        sx={{ width: 56, height: 56, margin: "auto" }}
+      />
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -62,48 +66,71 @@ export const Nav = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ top: "auto", boxShadow: "none" }}>
-        <Toolbar
-          sx={{ justifyContent: "space-between", backgroundColor: "white" }}
-        >
+      <AppBar
+        component="nav"
+        sx={{ boxShadow: "none", backgroundColor: "white" }}
+      >
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ display: { sm: "none" } }}
+            component={Link}
+            to="/"
+            sx={{ display: { sm: "block", xs: "none" }, mr: 2 }}
           >
-            <MenuIcon />
+            <Avatar src={logo} alt="Logo" sx={{ width: 56, height: 56 }} />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block" },
+              textAlign: "center",
+            }}
           >
-            <Avatar src={logo} alt="Logo" />
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button
                 key={item.name}
                 component={Link}
                 to={item.route}
-                sx={{ color: "black", textDecoration: "none" }}
+                sx={{
+                  color: "black",
+                  textDecoration: "none",
+                  marginLeft: "10px",
+                }}
               >
                 {item.name}
               </Button>
             ))}
           </Box>
-          <IconButton
-            color="black"
-            sx={{
-              ml: { sm: 12 },
-              order: { xs: 1, sm: 0 },
-            }}
-            onClick={handleCartToggle}
+          <Box
+            sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
           >
-            <ShoppingBagIcon />
-          </IconButton>
+            <IconButton color="black" sx={{ ml: 2 }} onClick={handleCartToggle}>
+              <ShoppingBagIcon />
+            </IconButton>
+          </Box>
+          <Box
+            sx={{ display: { xs: "flex", sm: "none" }, alignItems: "center" }}
+          >
+            <IconButton
+              color="black"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+            <IconButton
+              color="black"
+              sx={{
+                ml: 1,
+              }}
+              onClick={handleCartToggle}
+            >
+              <ShoppingBagIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       <nav>

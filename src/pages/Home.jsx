@@ -1,11 +1,14 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import MobileStepper from "@mui/material/MobileStepper";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import EastIcon from "@mui/icons-material/East";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import gImage from "../images/g.jpg";
 import cImage from "../images/c.jpg";
 import aImage from "../images/a.jpg";
@@ -21,15 +24,12 @@ const images = [
   { imgPath: cImage },
 ];
 
-const textContent = {
-  title: "Las flores de Susi",
-  subtitle: "Los detalles importan",
-};
-
 export const Home = () => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const numVisible = isMobile ? 1 : 3;
   const maxSteps = images.length;
-  const numVisible = 3;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => {
@@ -52,25 +52,20 @@ export const Home = () => {
         container
         spacing={2}
         sx={{
-          height: "100px",
+          height: "70px",
           backgroundColor: "white",
           color: "black",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
         }}
-      >
-        <Grid item xs={12}>
-          <Typography variant="h5">{textContent.title}</Typography>
-          <Typography variant="body1">{textContent.subtitle}</Typography>
-        </Grid>
-      </Grid>
+      ></Grid>
 
       <Grid container spacing={2}>
         {images
           .slice(activeStep, activeStep + numVisible)
           .map((image, index) => (
-            <Grid item key={index} xs={4}>
+            <Grid item key={index} xs={12} sm={4}>
               <Box
                 sx={{
                   position: "relative",
@@ -101,7 +96,7 @@ export const Home = () => {
         <KeyboardArrowLeft />
       </Button>
       <Button
-        size="small"
+        size="large"
         onClick={handleNext}
         disabled={isNextDisabled}
         sx={{
@@ -117,7 +112,6 @@ export const Home = () => {
       >
         <KeyboardArrowRight />
       </Button>
-
       <MobileStepper
         steps={maxSteps}
         position="static"
@@ -134,6 +128,33 @@ export const Home = () => {
           },
         }}
       />
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Button
+          variant="outlined"
+          component={Link}
+          to="/tienda"
+          size="large"
+          endIcon={<EastIcon sx={{ color: "white" }} />}
+          sx={{
+            color: "white",
+            borderColor: "white",
+            fontSize: "large",
+            "&:hover": {
+              borderColor: "pink",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+            },
+          }}
+        >
+          Ver tienda
+        </Button>
+      </Box>
     </Box>
   );
 };
