@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -6,7 +7,6 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -15,11 +15,17 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Avatar } from "@mui/material";
-import logo from "../images/logosu-01.png";
+import logo from "../images/b.jpg";
 import { CartDrawer } from "./CartDrawer";
 
 const drawerWidth = 240;
-const navItems = ["Inicio", "Tienda", "Eventos", "Suscripcion", "Nosotras"];
+const navItems = [
+  { name: "Inicio", route: "/" },
+  { name: "Tienda", route: "/tienda" },
+  { name: "Eventos", route: "/eventos" },
+  { name: "Suscripción", route: "/suscripciones" },
+  { name: "Nosotras", route: "/nosotras" },
+];
 
 export const Nav = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -35,15 +41,19 @@ export const Nav = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Avatar alt="Remy Sharp" src={logo} sx={{ width: 56, height: 56 }} />
+      <Avatar alt="Logo" src={logo} sx={{ width: 56, height: 56 }} />
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton
+            key={item.name}
+            component={Link}
+            to={item.route}
+            onClick={handleDrawerToggle}
+            sx={{ textAlign: "center" }}
+          >
+            <ListItemText primary={item.name} />
+          </ListItemButton>
         ))}
       </List>
     </Box>
@@ -52,9 +62,9 @@ export const Nav = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ top: "auto" }}>
+      <AppBar component="nav" sx={{ top: "auto", boxShadow: "none" }}>
         <Toolbar
-          sx={{ justifyContent: "space-between", backgroundColor: "#73A9D9" }}
+          sx={{ justifyContent: "space-between", backgroundColor: "white" }}
         >
           <IconButton
             color="inherit"
@@ -74,13 +84,18 @@ export const Nav = () => {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+              <Button
+                key={item.name}
+                component={Link}
+                to={item.route}
+                sx={{ color: "black", textDecoration: "none" }}
+              >
+                {item.name}
               </Button>
             ))}
           </Box>
           <IconButton
-            color="inherit"
+            color="black"
             sx={{
               ml: { sm: 12 },
               order: { xs: 1, sm: 0 },

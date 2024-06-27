@@ -6,7 +6,6 @@ import img2 from "../images/casamiento.jpeg";
 export const LinksHome = () => {
   return (
     <Grid container spacing={2} justifyContent="center" p={4}>
-      {/* Primera caja */}
       <Grid item xs={12} md={6}>
         <Box
           component={Link}

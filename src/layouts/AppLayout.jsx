@@ -6,10 +6,23 @@ import { Nav } from "../components/Nav";
 export const AppLayout = ({ children }) => {
   return (
     <Box
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
     >
       <Nav />
-      <Box style={{ flex: 1 }}>{children}</Box>
+      <Box
+        sx={{
+          flexGrow: 1,
+          marginTop: "64px",
+          marginBottom: "64px",
+          overflowY: "auto",
+        }}
+      >
+        {children}
+      </Box>
       <Footer />
     </Box>
   );

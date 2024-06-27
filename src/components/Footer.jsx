@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 
 const footerStyles = {
   backgroundColor: "black",
-  color: "#fff",
+  color: "#F29C50",
   padding: "16px",
   textAlign: "center",
 };
