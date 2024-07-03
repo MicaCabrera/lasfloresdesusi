@@ -16,7 +16,7 @@ function App() {
         <Route path="/tienda" element={<Store />} />
         <Route path="/eventos" element={<Events />} />
         <Route path="/suscripciones" element={<Suscription />} />
-        <Route path="/nosotras" element={<Faq />} />
+        <Route path="/nosotros" element={<Faq />} />
         <Route path="/carrito" element={<CartDrawer />} />
       </Routes>
     </AppLayout>

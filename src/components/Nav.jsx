@@ -19,12 +19,12 @@ import { CartDrawer } from "./CartDrawer";
 
 const drawerWidth = 240;
 const navItems = [
-  { name: "Home", route: "/" },
-  { name: "Shop", route: "/shop" },
-  { name: "About", route: "/about" },
-  { name: "Contact", route: "/contact" },
-  { name: "Collaborations", route: "/collaborations" },
-  { name: "NFT", route: "/nft" },
+  { name: "Inicio", route: "/" },
+  { name: "Tienda", route: "/tienda" },
+  { name: "Eventos", route: "/eventos" },
+  { name: "suscripciones", route: "/suscripciones" },
+  { name: "nosotros", route: "/nosotros" },
+  { name: "contacto", route: "/nft" },
 ];
 
 export const Nav = () => {
