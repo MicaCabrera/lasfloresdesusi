@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 
 const footerStyles = {
-  backgroundColor: "#013548",
+  backgroundColor: "#2F2B2B",
   color: "white",
   textAlign: "center",
 };
@@ -9,7 +9,7 @@ const footerStyles = {
 export const Footer = () => {
   return (
     <footer style={footerStyles}>
-      <Typography ccolor="white" padding={7}>
+      <Typography color="white" padding={7}>
         © 2024 Las flores de Susi | Belgrano - Capital Federal | Argentina
       </Typography>
     </footer>

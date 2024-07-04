@@ -1,25 +1,41 @@
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid, Button, Divider } from "@mui/material";
 import casamiento_1 from "../images/eventos/lfds.jpeg";
 
 export const Events = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "white",
         color: "black",
-        padding: "80px 0px",
+        padding: { xs: "10px 0", md: "20px 0" },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        width: "100%",
       }}
     >
       <Grid
         container
-        alignItems="center"
-        justifyContent="center"
-        sx={{ marginBottom: "50px", maxWidth: "90%", mx: "auto" }}
+        sx={{
+          justifyContent: "center",
+          padding: { xs: 2, sm: 4, md: 0 },
+          maxWidth: "90%",
+          mx: "auto",
+          textAlign: { xs: "center" },
+        }}
       >
+        <Grid item xs={12}>
+          <Typography
+            variant="h2"
+            fontFamily="Playfair Display"
+            py={2}
+            mb={2}
+            gutterBottom
+            textAlign="left"
+          >
+            Eventos
+          </Typography>
+        </Grid>
         <Grid
           item
           xs={12}
@@ -27,58 +43,91 @@ export const Events = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mb: { xs: 3, md: 0 }, // Añade margen inferior en móviles y tabletas
+            alignItems: "center",
+            mb: { xs: 3, md: 0 },
           }}
         >
           <img
             src={casamiento_1}
             alt="casamiento en el Faena"
-            style={{ maxWidth: "60%", height: "auto" }} // Hacer la imagen responsiva
+            style={{ width: "100%", height: "auto" }}
           />
         </Grid>
-        <Grid item xs={12} md={6} sx={{ padding: { xs: 2, md: 0 } }}>
-          <Typography variant="h5" fontFamily="Playfair Display" gutterBottom>
-            Decoración de eventos
-          </Typography>
-          <Typography paragraph fontFamily="Playfair Display">
-            Sobald der Wecker klingelt sitze ich kerzengerade und hellwach im
-            Bett. Wenn ich nicht eh schon vor dem Wecker wach bin... Dafür gehe
-            ich gerne früh ins Bett & bin niemand, der die Nacht durchmacht.
-          </Typography>
-          <Typography variant="h5" fontFamily="Playfair Display" gutterBottom>
-            Sehr glücklich verheiratet
-          </Typography>
-          <Typography paragraph fontFamily="Playfair Display">
-            Vor 13 Jahren habe ich die Liebe meines Lebens kennengelernt.
-            Verrückt, wie die Zeit vergeht. 2020 haben wir im kleinen Kreis in
-            der Toskana geheiratet und uns in einer freien Trauung das Ja-Wort
-            gegeben.
-          </Typography>
-          <Typography variant="h5" fontFamily="Playfair Display" gutterBottom>
-            Durch und durch Ästhetin
-          </Typography>
-          <Typography paragraph fontFamily="Playfair Display">
-            Ich liebe gutes Design und schöne Dinge. Und das nicht nur als
-            Fotografin, sondern auch privat. Wenn es um mich herum schön
-            aussieht fühle ich mich gleich ein Stückchen wohler!
-          </Typography>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            p: { xs: 2, sm: 4, md: 7 },
+          }}
+        >
+          <Box>
+            <Divider>
+              <Typography
+                variant="h5"
+                fontFamily="Playfair Display"
+                gutterBottom
+              >
+                Decoración floral
+              </Typography>
+            </Divider>
+            <Typography variant="body2" fontFamily="Playfair Display" pb={7}>
+              Sobald der Wecker klingelt sitze ich kerzengerade und hellwach im
+              Bett. Wenn ich nicht eh schon vor dem Wecker wach bin... Dafür
+              gehe ich gerne früh ins Bett & bin niemand, der die Nacht
+              durchmacht.
+            </Typography>
+            <Divider>
+              <Typography
+                variant="h5"
+                fontFamily="Playfair Display"
+                gutterBottom
+              >
+                Ambientación
+              </Typography>
+            </Divider>
+            <Typography variant="body2" fontFamily="Playfair Display" pb={7}>
+              Vor 13 Jahren habe ich die Liebe meines Lebens kennengelernt.
+              Verrückt, wie die Zeit vergeht. 2020 haben wir im kleinen Kreis in
+              der Toskana geheiratet und uns in einer freien Trauung das Ja-Wort
+              gegeben.
+            </Typography>
+            <Divider>
+              <Typography
+                variant="h5"
+                fontFamily="Playfair Display"
+                gutterBottom
+              >
+                Asesoramiento
+              </Typography>
+            </Divider>
+            <Typography variant="body2" fontFamily="Playfair Display">
+              Ich liebe gutes Design und schöne Dinge. Und das nicht nur als
+              Fotografin, sondern auch privat. Wenn es um mich herum schön
+              aussieht fühle ich mich gleich ein Stückchen wohler!
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
       <Grid
         container
-        spacing={2}
         alignItems="center"
-        justifyContent="space-evenly"
-        sx={{ padding: { xs: 2, md: 10 }, maxWidth: "90%", mx: "auto" }}
+        justifyContent="center"
+        sx={{
+          maxWidth: "90%",
+          mx: "auto",
+          my: { xs: 5, md: 10 },
+          px: { xs: 2, sm: 4, md: 7 },
+        }}
       >
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6} p={{ xs: 2, md: 7 }}>
           <Typography
             variant="h5"
             textAlign="center"
             fontFamily="Playfair Display"
             gutterBottom
           >
-            Decoración de eventos
+            Hablemos
           </Typography>
           <Typography
             textAlign="center"
@@ -94,7 +143,11 @@ export const Events = () => {
           item
           xs={12}
           md={2}
-          sx={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: { xs: 2, md: 0 },
+          }}
         >
           <Button size="large" variant="outlined">
             Contactanos

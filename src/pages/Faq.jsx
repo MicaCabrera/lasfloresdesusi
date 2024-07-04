@@ -188,7 +188,7 @@
 //     </>
 //   );
 // };
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 // import casamiento_1 from "../images/eventos/lfds.jpeg";
 
 export const Faq = () => {
@@ -211,14 +211,14 @@ export const Faq = () => {
         justifyContent="space-evenly"
         sx={{ padding: { xs: 2, md: 10 }, maxWidth: "90%", mx: "auto" }}
       >
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Typography
-            variant="h5"
+            variant="h2"
             textAlign="center"
             fontFamily="Playfair Display"
             gutterBottom
           >
-            Decoración de eventos
+            Las flores de Susi
           </Typography>
           <Typography
             textAlign="center"
@@ -229,16 +229,6 @@ export const Faq = () => {
             Bett. Wenn ich nicht eh schon vor dem Wecker wach bin... Dafür gehe
             ich gerne früh ins Bett & bin niemand, der die Nacht durchmacht.
           </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={2}
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          <Button size="large" variant="outlined">
-            Contactanos
-          </Button>
         </Grid>
       </Grid>
     </Box>
