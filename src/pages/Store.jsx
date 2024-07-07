@@ -72,7 +72,7 @@ export const Store = () => {
                 style={{
                   width: "100%",
                   height: "auto",
-                  borderRadius: "8px",
+                  borderRadius: "8px", // Opcional: bordes redondeados para la imagen
                 }}
               />
               <Box
@@ -90,7 +90,7 @@ export const Store = () => {
                 <Divider
                   sx={{
                     width: "80px",
-                    margin: "12px 0px",
+                    margin: "12px 0px", // Margen arriba y abajo
                     backgroundColor: "#FFC165",
                     height: "4px",
                   }}

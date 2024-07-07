@@ -17,5 +17,6 @@ module.exports = {
     'react-refresh/only-export-components': 
       'warn',
       'prettier/prettier' : ['warn', { endOfLine: 'auto'}],
+   
   },
 }
