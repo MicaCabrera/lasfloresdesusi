@@ -9,12 +9,31 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import aImage from "../images/a.jpg";
-
-// <Box sx={{ mt: 2 }}>
-//   <Button component={Link}> Ver Detalle</Button>
-// </Box>
+import { useEffect, useState } from "react";
+import { getAllProducts } from "../services/products";
 
 export const Store = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const products = await getAllProducts();
+        setLoading(false);
+        setProducts(products);
+      } catch (error) {
+        setLoading(false);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <Container maxWidth="90%" sx={{ py: 4 }}>
       <Typography variant="body2" align="center" sx={{ color: "#888", m: 2 }}>
@@ -56,50 +75,58 @@ export const Store = () => {
         </Grid>
 
         {/* Productos */}
+
         <Grid item xs={12} md={9}>
+          {loading && <span>Loading</span>}
+          {error && <span>Se ha producido un error</span>}
           <Grid container spacing={3}>
-            {/* Ejemplo de producto */}
-            <Grid
-              component={Link}
-              item
-              xs={12}
-              md={4}
-              sx={{ textDecoration: "none" }}
-            >
-              <img
-                src={aImage}
-                alt="Producto"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "8px", // Opcional: bordes redondeados para la imagen
-                }}
-              />
-              <Box
-                sx={{
-                  bgcolor: "#fff",
-                  p: 2,
-                  boxShadow: 1,
-                  textAlign: "left",
-                }}
+            {products.map((product) => (
+              <Grid
+                key={product.id}
+                component={Link}
+                item
+                xs={12}
+                md={4}
+                sx={{ textDecoration: "none" }}
               >
-                <Typography gutterBottom>Nombre del Producto</Typography>
-                <Typography variant="body2" sx={{ color: "#888" }}>
-                  Descripción corta del producto.
-                </Typography>
-                <Divider
-                  sx={{
-                    width: "80px",
-                    margin: "12px 0px", // Margen arriba y abajo
-                    backgroundColor: "#FFC165",
-                    height: "4px",
+                <img
+                  src={aImage}
+                  alt="Producto"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "8px",
                   }}
                 />
-                <Typography variant="h6" sx={{ mt: 1 }}>
-                  $XX.XX
-                </Typography>
-              </Box>
-            </Grid>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    p: 2,
+                    boxShadow: 1,
+                    textAlign: "left",
+                  }}
+                >
+                  <Typography gutterBottom>{product.name}</Typography>
+                  <Typography variant="body2" sx={{ color: "#888" }}>
+                    {product.description}
+                  </Typography>
+                  <Divider
+                    sx={{
+                      width: "80px",
+                      margin: "12px 0px",
+                      backgroundColor: "#FFC165",
+                      height: "4px",
+                    }}
+                  />
+                  <Typography variant="h6" sx={{ mt: 1 }}>
+                    {product.price}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+            {!products.length && !loading && (
+              <span>No hay productos para mostrar</span>
+            )}
           </Grid>
         </Grid>
       </Grid>

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
-import qImage from "../images/a.jpg"; // Reemplaza con tu imagen
+import qImage from "../images/a.jpg";
 
 export const LinksHome = () => {
   const links = [
