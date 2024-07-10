@@ -5,12 +5,11 @@ import {
   Box,
   TextField,
   Button,
-  Divider,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import aImage from "../images/a.jpg";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../services/products";
+import { Spinner } from "../components/Spinner";
+import { Products } from "./products/Products";
 
 export const Store = () => {
   const [products, setProducts] = useState([]);
@@ -26,8 +25,6 @@ export const Store = () => {
       } catch (error) {
         setLoading(false);
         setError(true);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -37,14 +34,14 @@ export const Store = () => {
   return (
     <Container maxWidth="90%" sx={{ py: 4 }}>
       <Typography variant="body2" align="center" sx={{ color: "#888", m: 2 }}>
-        las flores de susi logo
+        Las Flores de Susi Logo
       </Typography>
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={3}>
           <Box sx={{ bgcolor: "#fff", p: 2, boxShadow: 1, borderRadius: 1 }}>
             <Typography variant="h6" gutterBottom sx={{ mb: 2 }}>
-              Categorias
+              Categorías
             </Typography>
             <TextField
               select
@@ -74,55 +71,12 @@ export const Store = () => {
           </Box>
         </Grid>
 
-        {/* Productos */}
-
         <Grid item xs={12} md={9}>
-          {loading && <span>Loading</span>}
+          {loading && <Spinner />}
           {error && <span>Se ha producido un error</span>}
           <Grid container spacing={3}>
             {products.map((product) => (
-              <Grid
-                key={product.id}
-                component={Link}
-                item
-                xs={12}
-                md={4}
-                sx={{ textDecoration: "none" }}
-              >
-                <img
-                  src={aImage}
-                  alt="Producto"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "8px",
-                  }}
-                />
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    p: 2,
-                    boxShadow: 1,
-                    textAlign: "left",
-                  }}
-                >
-                  <Typography gutterBottom>{product.name}</Typography>
-                  <Typography variant="body2" sx={{ color: "#888" }}>
-                    {product.description}
-                  </Typography>
-                  <Divider
-                    sx={{
-                      width: "80px",
-                      margin: "12px 0px",
-                      backgroundColor: "#FFC165",
-                      height: "4px",
-                    }}
-                  />
-                  <Typography variant="h6" sx={{ mt: 1 }}>
-                    {product.price}
-                  </Typography>
-                </Box>
-              </Grid>
+              <Products key={product.id} product={product} />
             ))}
             {!products.length && !loading && (
               <span>No hay productos para mostrar</span>

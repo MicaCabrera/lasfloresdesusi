@@ -6,7 +6,8 @@ import { Events } from "./pages/Events.jsx";
 import { Suscription } from "./pages/Suscription.jsx";
 import { Faq } from "./pages/Faq.jsx";
 import { AppLayout } from "./layouts/AppLayout.jsx";
-import { CartDrawer } from "./components/CartDrawer.jsx";
+import { CartDrawer } from "./components/cart/CartDrawer.jsx";
+import { Product } from "./pages/products/Product.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/suscripciones" element={<Suscription />} />
         <Route path="/nosotros" element={<Faq />} />
         <Route path="/carrito" element={<CartDrawer />} />
+        <Route path="/tienda/:id" element={<Product />} />
       </Routes>
     </AppLayout>
   );

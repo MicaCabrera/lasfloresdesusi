@@ -8,7 +8,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider } from "./context/UserContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 const theme = createTheme({
   palette: {

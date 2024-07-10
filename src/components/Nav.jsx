@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Avatar } from "@mui/material";
 import logo from "../images/b.jpg";
-import { CartDrawer } from "./CartDrawer";
+import { CartDrawer } from "./cart/CartDrawer";
 
 const drawerWidth = 240;
 const navItems = [
